@@ -11,10 +11,10 @@ export class City {
     @Column()
     name: string;
 
-    @ManyToOne(type => Country, country => country.cities)
+    @ManyToOne(type => Country, country => country.city)
     country: Country;
 
-    @ManyToMany(type => Traveler, traveler => traveler.cities)
+    @ManyToMany(type => Traveler, traveler => traveler.city)
     @JoinTable()
-    travelers: Traveler
+    traveler: Traveler
 }

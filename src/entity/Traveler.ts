@@ -10,7 +10,7 @@ export class Traveler {
     @Column()
     name: string;
 
-    @ManyToMany(type => City, city => city.travelers)
+    @ManyToMany(type => City, city => city.traveler)
     @JoinTable()
-    cities: City;
+    city: City;
 }

@@ -11,5 +11,5 @@ export class Country{
     name: string;
 
     @OneToMany(type => City, city => city.country)
-    cities: City;
+    city: City;
 }

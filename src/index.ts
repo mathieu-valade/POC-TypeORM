@@ -3,11 +3,12 @@ import * as bodyParser from "body-parser"
 
 import * as express from "express"
 import { createConnection } from "typeorm";
-import { BasicRepository } from "./Business/BasicRepository";
 import { Country } from "./entity/Country";
 
-import {configure} from "./route/Factory";
+import {configureBasic} from "./route/BasicFactory";
 import {Verb} from "./route/Verb"
+import { configureOneToMany } from "./route/OneToManyFactory";
+import { City } from "./entity/City";
 
 
 
@@ -25,10 +26,13 @@ app.use(
     })
   )
 
-const router = configure(Country, "/country", [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete]);
 
-app.use(router)
-
+app.use(
+  configureOneToMany(
+    Country,
+    City,
+    [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany]
+));
 
 app.listen(3000, () => {
     console.log("listening")

@@ -4,4 +4,5 @@ export enum Verb {
     Get,
     Post,
     Delete,
+    GetMany,
 }
