@@ -8,6 +8,7 @@ export function getMany<T1, T2>(oneType: new() => T1, manyType: new() => T2, id:
     return getManager().getRepository(oneClassName)
     .findOneOrFail({relations: [manyClassName], where: {id: id}})
     .then((item) => {
+        console.log(item);
         return item[manyClassName];
     })
     .catch((error) => {

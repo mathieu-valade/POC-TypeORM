@@ -10,6 +10,6 @@ export class Country{
     @Column()
     name: string;
 
-    @OneToMany(type => City, city => city.country)
+    @OneToMany(type => City, city => city.country, {"cascade": true})
     city: City;
 }

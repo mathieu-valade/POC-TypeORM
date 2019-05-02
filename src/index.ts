@@ -34,6 +34,8 @@ app.use(
     [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany]
 ));
 
+//app.use(configureBasic(City, [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany, Verb.PostMany]))
+
 app.listen(3000, () => {
     console.log("listening")
 });
