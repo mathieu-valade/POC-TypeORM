@@ -6,10 +6,13 @@ export function postMany<T1, T2>(oneType: new() => T1, manyType: new() => T2, it
     const oneClassName = getClassName(oneType);
     const manyClassName = getClassName(manyType);
 
+
     if (item[manyClassName] != undefined) { 
         const itemList = item[manyClassName].map(i => getManager().getRepository(manyClassName).create(i));
         item[manyClassName] = itemList;
     }
+    console.log(item)
+
 
     return getManager().getRepository(oneClassName)
     .save(item)

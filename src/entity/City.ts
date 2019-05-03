@@ -14,7 +14,7 @@ export class City {
     @ManyToOne(type => Country, country => country.city)
     country: Country;
 
-    @ManyToMany(type => Traveler, traveler => traveler.city)
+    @ManyToMany(type => Traveler, traveler => traveler.city, {"cascade": true})
     @JoinTable()
-    traveler: Traveler
+    traveler: Traveler[]
 }

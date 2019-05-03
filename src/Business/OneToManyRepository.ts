@@ -5,7 +5,7 @@ import { postMany } from "../DataAccess/postMany";
 
 export class OneToManyRepository<T1, T2> extends BasicRepository<T1> {
     public readonly manyClassName : string;
-    private manyType : new () => T2;
+    protected manyType : new () => T2;
 
     constructor(oneType: new () => T1, manyType: new() => T2) {
         super(oneType);

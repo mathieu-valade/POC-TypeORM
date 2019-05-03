@@ -11,5 +11,5 @@ export class Country{
     name: string;
 
     @OneToMany(type => City, city => city.country, {"cascade": true})
-    city: City;
+    city: City[];
 }

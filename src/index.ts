@@ -9,6 +9,7 @@ import {configureBasic} from "./route/BasicFactory";
 import {Verb} from "./route/Verb"
 import { configureOneToMany } from "./route/OneToManyFactory";
 import { City } from "./entity/City";
+import { Traveler } from "./entity/Traveler";
 
 
 
@@ -34,7 +35,15 @@ app.use(
     [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany]
 ));
 
-//app.use(configureBasic(City, [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany, Verb.PostMany]))
+app.use(
+  configureOneToMany(
+    City,
+    Traveler,
+    [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany]
+  )
+)
+
+app.use(configureBasic(Traveler, [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete]))
 
 app.listen(3000, () => {
     console.log("listening")

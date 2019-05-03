@@ -12,5 +12,5 @@ export class Traveler {
 
     @ManyToMany(type => City, city => city.traveler)
     @JoinTable()
-    city: City;
+    city: City[];
 }

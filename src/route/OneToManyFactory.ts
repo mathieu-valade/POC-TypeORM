@@ -27,7 +27,7 @@ export function configureOneToMany<T1, T2>(oneType: new() => T1, manyType: new()
             })
         }
         if (verb === Verb.Post) {
-            router.post(`/${oneRoute}/:id/${manyRoute}`, (request, response) => {
+            router.post(`/${oneRoute}/${manyRoute}`, (request, response) => {
                 const item = request.body;
                 repository.post(item).then((isSuccess) => {
                     if (isSuccess === false) {
