@@ -4,7 +4,7 @@ import { OneToManyRepository } from "../Business/OneToManyRepository";
 import { Verb } from "./Verb";
 
 
-export function configureOneToMany<T1, T2>(oneType: new() => T1, manyType: new() => T2, verbList: Verb[]) : Router {
+export function configureRelation<T1, T2>(oneType: new() => T1, manyType: new() => T2, verbList: Verb[]) : Router {
     const router = Router();
     router.use(configureBasic(oneType, verbList));
     

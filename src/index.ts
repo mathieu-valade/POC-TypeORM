@@ -7,7 +7,7 @@ import { Country } from "./entity/Country";
 
 import {configureBasic} from "./route/BasicFactory";
 import {Verb} from "./route/Verb"
-import { configureOneToMany } from "./route/OneToManyFactory";
+import { configureRelation } from "./route/RelationFactory";
 import { City } from "./entity/City";
 import { Traveler } from "./entity/Traveler";
 
@@ -29,14 +29,14 @@ app.use(
 
 
 app.use(
-  configureOneToMany(
+  configureRelation(
     Country,
     City,
     [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany]
 ));
 
 app.use(
-  configureOneToMany(
+  configureRelation(
     City,
     Traveler,
     [Verb.Get, Verb.GetAll, Verb.Post, Verb.Delete, Verb.GetMany]
